@@ -339,6 +339,24 @@ nets = dict(
         ANNOUNCE_CHANNEL='#p2pool-alt',
         VERSION_CHECK=lambda v: True,
     ),
+    dogecoin_testnet=math.Object(
+        PARENT=networks.nets['dogecoin_testnet'],
+        SHARE_PERIOD=15, # seconds target spacing
+        CHAIN_LENGTH=12*60*60//15, # shares
+        REAL_CHAIN_LENGTH=12*60*60//15, # shares
+        TARGET_LOOKBEHIND=20, # shares coinbase maturity
+        SPREAD=10, # blocks
+        IDENTIFIER='29384f000c0d6516'.decode('hex'),
+        PREFIX='2c0d651660eefaf1'.decode('hex'),
+        P2P_PORT=8555,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=False,
+        WORKER_PORT=9556,
+        BOOTSTRAP_ADDRS=''.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-alt',
+        VERSION_CHECK=lambda v: True,
+    ),
     billioncoin=math.Object( #565
         PARENT=networks.nets['billioncoin'],
         SHARE_PERIOD=15, # seconds target spacing
